@@ -5,8 +5,8 @@ function App()
 {
   const [cityData, setCityData] = useState({});
   const [clickedState, setClickedState] = useState(false);
-  const [city, setCity] = useState("");
-  const [cityInfo, setCityInfo] = useState("");
+  const [city, setCity] = useState("harrow");
+  const [cityInfo, setCityInfo] = useState("pharmacies");
 
 
   useEffect(() =>
@@ -58,7 +58,7 @@ function App()
             <th>Phone</th>
           </thead>
           <tbody>
-            {<ResultRow cityData={cityData} cityInfo={cityInfo} clickedState={clickedState} />}
+            {<ResultRow cityData={cityData} clickedState={clickedState} />}
           </tbody>
         </table>
       </body>
@@ -67,7 +67,7 @@ function App()
 }
 
 
-const ResultRow = ({ cityData, clickedState, cityInfo }) =>
+const ResultRow = ({ cityData, clickedState }) =>
 {
   if (clickedState === true)
   {
@@ -78,8 +78,8 @@ const ResultRow = ({ cityData, clickedState, cityInfo }) =>
           <td>{cityData.address}</td>
           <td>{cityData.website}</td>
           <td>{cityData.phone}</td>
-        </tr>)
-    );
+        </tr>
+      ));
   }
 }
 
